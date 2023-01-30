@@ -4,8 +4,8 @@
 #include <QtSvg>
 #include <array>
 
-#include "controller.h"
-#include "settings.h"
+#include "../../Controller/Controller/Controller.h"
+#include "../Settings/Settings.h"
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class View;
@@ -17,11 +17,11 @@ class View : public QMainWindow {
   Q_OBJECT
   using AffineInfo = std::array<std::array<double, 3>, 3>;
 
-public:
-  explicit View(Controller *controller, QWidget *parent = nullptr);
+ public:
+  explicit View(Controller *Controller, QWidget *parent = nullptr);
   ~View();
 
-private slots:
+ private slots:
   void on_openFile_clicked();
   void on_settings_clicked();
   void on_photoButton_clicked();
@@ -30,16 +30,16 @@ private slots:
   void on_rotationDo_clicked();
   void on_gifButton_clicked();
 
-signals:
+ signals:
   void fileSetter(FILE *s);
   void applyOldSettings();
   void affineUpdate();
 
-private:
+ private:
   Ui::View *ui;
   Controller *controller;
   Settings *menu;
   void GetAffineValues(AffineInfo &values);
 };
-} // namespace s21
-#endif // VIEW_H
+}  // namespace s21
+#endif  // VIEW_H

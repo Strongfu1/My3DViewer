@@ -3,7 +3,7 @@
 
 #include <QDialog>
 
-#include "controller.h"
+#include "../../Controller/Controller/Controller.h"
 namespace Ui {
 class Settings;
 }
@@ -14,17 +14,17 @@ void Color(QWidget *sender, QColor color, QString prop);
 class Settings : public QDialog {
   Q_OBJECT
 
-public:
-  explicit Settings(Controller *controller, QWidget *parent = nullptr);
+ public:
+  explicit Settings(Controller *Controller, QWidget *parent = nullptr);
   ~Settings();
 
-public slots:
+ public slots:
   void applyOldSettings();
 
-signals:
+ signals:
   void updateSettings();
 
-private slots:
+ private slots:
   void ChangeEdgesColor();
   void ChangeVerColor();
   void ChangeBackColor();
@@ -39,14 +39,14 @@ private slots:
   void circleRadio_clicked();
   void squareRadio_clicked();
 
-private:
+ private:
   Ui::Settings *ui;
   Controller *controller;
   SettingsParser::Settings &settings;
 
-protected:
+ protected:
   void closeEvent(QCloseEvent *);
 };
-} // namespace s21
+}  // namespace s21
 
-#endif // SETTINGS_H
+#endif  // SETTINGS_H

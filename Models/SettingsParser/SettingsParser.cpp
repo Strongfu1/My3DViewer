@@ -1,4 +1,4 @@
-#include "parsSavedSettings.h"
+#include "SettingsParser.h"
 
 namespace s21 {
 

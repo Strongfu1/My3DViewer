@@ -1,12 +1,12 @@
 #ifndef CONTROLLER_H
 #define CONTROLLER_H
-#include "facade.h"
+#include "../Facade/Facade.h"
 namespace s21 {
 class Controller {
   using AffineInfo = std::array<std::array<double, 3>, 3>;
 
-public:
-  explicit Controller(Facade *facade);
+ public:
+  explicit Controller(Facade *Facade);
   ~Controller();
   void ParsOldSettings();
   SettingsParser::Settings &GetSettings();
@@ -17,9 +17,9 @@ public:
   void Affine(char type, double x, double y, double z);
   std::vector<QImage> DoAnimation(size_t len, AffineInfo affine_values);
 
-private:
+ private:
   Facade *facade;
 };
 
-} // namespace s21
+}  // namespace s21
 #endif

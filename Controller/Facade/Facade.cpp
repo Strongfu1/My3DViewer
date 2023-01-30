@@ -1,4 +1,4 @@
-#include "facade.h"
+#include "Facade.h"
 namespace s21 {
 Facade::Facade() : drawer(nullptr) { SettingsParser::GetInstance(); }
 
@@ -34,19 +34,19 @@ std::vector<double> &Facade::GetVertices() { return drawer->Vertices(); }
 void Facade::AffineTransformations(char type, double x, double y, double z) {
   switch (type) {
   case kScale:
-    affine.SetStrategy(new Scale);
+    Affine.SetStrategy(new Scale);
     break;
   case kRotate:
-    affine.SetStrategy(new Rotate);
+    Affine.SetStrategy(new Rotate);
     break;
   case kMove:
-    affine.SetStrategy(new Move);
+    Affine.SetStrategy(new Move);
     break;
   default:
     return;
   }
   std::vector<double> &vec = GetVertices();
-  affine.Work(vec, x, y, z);
+  Affine.Work(vec, x, y, z);
   drawer->update();
 }
 

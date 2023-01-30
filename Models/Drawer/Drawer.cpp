@@ -1,4 +1,4 @@
-#include "drawer.h"
+#include "Drawer.h"
 
 #include <QMouseEvent>
 #include <QPainterPath>
@@ -6,10 +6,9 @@ namespace s21 {
 Drawer::Drawer(QWidget *parent)
     : QOpenGLWidget(parent),
       settings_(SettingsParser::GetInstance()->GetSettings()),
-      active_proj_(!settings_.projection),
-      zoom_(1) {}
+      active_proj_(!settings_.projection), zoom_(1) {}
 
-void Drawer::resizeGL(int w, int h) {  // Channging size of window
+void Drawer::resizeGL(int w, int h) { // Channging size of window
   glViewport(0, 0, w, h);
   QPainterPath path;
   path.addRoundedRect(this->rect(), 15, 15);
@@ -43,7 +42,7 @@ void Drawer::paintGL() {
 
   glLineWidth(settings_.edges_size);
   if (settings_.edges_type == kDashed) {
-    glLineStipple(1, 0xFF);  // Dashed lines
+    glLineStipple(1, 0xFF); // Dashed lines
     glEnable(GL_LINE_STIPPLE);
   } else {
     glDisable(GL_LINE_STIPPLE);
@@ -59,7 +58,7 @@ void Drawer::paintGL() {
 void Drawer::initializeGL() { glEnable(GL_DEPTH_TEST); }
 
 void Drawer::drawModel() {
-  glEnableClientState(GL_VERTEX_ARRAY);  // Allowing OpenGl to use buffer
+  glEnableClientState(GL_VERTEX_ARRAY); // Allowing OpenGl to use buffer
   glVertexPointer(3, GL_DOUBLE, 0, model_.vertices.data());
   glColor3f(settings_.edges_col.redF(), settings_.edges_col.greenF(),
             settings_.edges_col.blueF());
@@ -88,7 +87,7 @@ void Drawer::wheelEvent(QWheelEvent *mo) {
 void Drawer::mousePressEvent(QMouseEvent *mo) { mpos_ = mo->pos(); }
 
 void Drawer::mouseMoveEvent(QMouseEvent *mo) {
-  x_rot_ += 0.5 / M_PI * (mo->pos().y() - mpos_.y());  //  Rotation
+  x_rot_ += 0.5 / M_PI * (mo->pos().y() - mpos_.y()); //  Rotation
   y_rot_ += 0.5 / M_PI * (mo->pos().x() - mpos_.x());
   update();
 }
@@ -108,4 +107,4 @@ QImage Drawer::GetScreenshot() { return grabFramebuffer(); }
 
 std::vector<double> &Drawer::Vertices() { return model_.vertices; }
 
-}  // namespace s21
+} // namespace s21

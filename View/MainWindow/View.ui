@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>LizaKrutaya</string>
+   <string>3DViewer</string>
   </property>
   <property name="styleSheet">
    <string notr="true"/>
@@ -1405,7 +1405,7 @@ image: url(:/Icons/CheckMark.svg);
   <customwidget>
    <class>s21::Drawer</class>
    <extends>QOpenGLWidget</extends>
-   <header>drawer.h</header>
+   <header>../../Models/Drawer/Drawer.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

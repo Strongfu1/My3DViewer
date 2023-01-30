@@ -1,4 +1,5 @@
-#include "settings.h"
+#include "Settings.h"
+
 #include <QColorDialog>
 #include <QDir>
 #include <QFile>

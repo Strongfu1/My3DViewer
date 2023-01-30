@@ -1,4 +1,4 @@
-#include "controller.h"
+#include "Controller.h"
 namespace s21 {
 Controller::Controller(Facade *facade) : facade(facade) {}
 

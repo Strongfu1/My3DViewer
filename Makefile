@@ -36,10 +36,6 @@ dvi:
 mk:
 	mkdir ../build
 
-test:
-	@$(CXX) -O0 -C test.cpp affine.cpp ModelReader.cpp -o test $(CXXFLAGS)
-	./test
-
 check:
 	@clang-format -i *.cpp *.h
 	clang-format -n *.cpp *.h
@@ -53,4 +49,4 @@ clean:
 	rm -rf ../build-*
 
 
-.PHONY: check tests clean
+.PHONY: check clean

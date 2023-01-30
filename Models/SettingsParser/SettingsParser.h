@@ -1,5 +1,5 @@
-#ifndef PARSSAVEDSETTINGS_H
-#define PARSSAVEDSETTINGS_H
+#ifndef SETTINGS_PARSER_H
+#define SETTINGS_PARSER_H
 
 #include <QColor>
 #include <QString>
@@ -48,21 +48,26 @@ class SettingsParser {
   static std::string settings_file_;
   std::fstream file_;
 
-public:
+ public:
   ~SettingsParser();
   struct Settings {
-    bool projection; // 0-central, 1-parallel
-    bool edges_type; // 0-solid 1-dashed
+    bool projection;  // 0-central, 1-parallel
+    bool edges_type;  // 0-solid 1-dashed
     char edges_size;
-    char vert_type; // 0-nan 1-circle 2-square
+    char vert_type;  // 0-nan 1-circle 2-square
     char vert_size;
     QColor edges_col;
     QColor vert_col;
     QColor back_col;
     Settings()
-        : projection(kCentral), edges_type(kSolid), edges_size(1),
-          vert_type(kCircle), vert_size(1), edges_col(Qt::black),
-          vert_col(Qt::black), back_col(Qt::white) {}
+        : projection(kCentral),
+          edges_type(kSolid),
+          edges_size(1),
+          vert_type(kCircle),
+          vert_size(1),
+          edges_col(Qt::black),
+          vert_col(Qt::black),
+          back_col(Qt::white) {}
   } settings_;
   static SettingsParser *GetInstance();
   void parsFileSavedSettings();
@@ -70,5 +75,5 @@ public:
   void SaveSettings(std::fstream &setFile);
 };
 
-} // namespace s21
-#endif // PARSSAVEDSETTINGS_H
+}  // namespace s21
+#endif  // SETTINGS_PARSER_H

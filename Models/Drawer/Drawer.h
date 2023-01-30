@@ -9,8 +9,8 @@
 
 #include <QtOpenGLWidgets/QOpenGLWidget>
 
-#include "ModelReader.h"
-#include "parsSavedSettings.h"
+#include "../ModelReader/ModelReader.h"
+#include "../SettingsParser/SettingsParser.h"
 namespace s21 {
 class Drawer : public QOpenGLWidget {
   Q_OBJECT

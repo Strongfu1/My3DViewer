@@ -1,4 +1,4 @@
-#include "view.h"
+#include "View.h"
 
 #include <QChar>
 #include <QFileDialog>
@@ -6,7 +6,7 @@
 #include <QMessageBox>
 
 #include "QtGifImage/qgifimage.h"
-#include "ui_view.h"
+#include "ui_View.h"
 namespace s21 {
 
 View::View(Controller *controller, QWidget *parent)

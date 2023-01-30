@@ -1,4 +1,4 @@
-#include "affine.h"
+#include "Affine.h"
 namespace s21 {
 
 void Scale::Affine(std::vector<double> &vert, double scaleX, double scaleY,

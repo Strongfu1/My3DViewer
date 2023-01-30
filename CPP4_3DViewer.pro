@@ -11,29 +11,29 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    affine.cpp \
-    controller.cpp \
-    drawer.cpp \
-    facade.cpp \
-    ModelReader.cpp \
-    main.cpp \
-    parsSavedSettings.cpp \
-    settings.cpp \
-    view.cpp
+    Controller/Controller/Controller.cpp \
+    Controller/Facade/Facade.cpp \
+    Models/Affine/Affine.cpp \
+    Models/Drawer/Drawer.cpp \
+    Models/ModelReader/ModelReader.cpp \
+    Models/SettingsParser/SettingsParser.cpp \
+    View/MainWindow/View.cpp \
+    View/Settings/Settings.cpp \
+    main.cpp
 
 HEADERS += \
-    affine.h \
-    controller.h \
-    drawer.h \
-    facade.h \
-    ModelReader.h \
-    parsSavedSettings.h \
-    settings.h \
-    view.h
+    Controller/Controller/Controller.h \
+    Controller/Facade/Facade.h \
+    Models/Affine/Affine.h \
+    Models/Drawer/Drawer.h \
+    Models/ModelReader/ModelReader.h \
+    Models/SettingsParser/SettingsParser.h \
+    View/MainWindow/View.h \
+    View/Settings/Settings.h
 
 FORMS += \
-    settings.ui \
-    view.ui
+    View/MainWindow/View.ui \
+    View/Settings/Settings.ui
 
 
 SUBDIRS += \
